@@ -26,19 +26,21 @@ cd ../..
 
 ### ScanNet v2
 
-Just like [SAM3D's Data prepartation](https://github.com/Pointcept/SegmentAnything3D)
+Check [SAM3D's Data prepartation](https://github.com/Pointcept/SegmentAnything3D) here.
 
 ### Personal Own Dataset
 
-- Using `pc2image.py` generate 2D RGBD photos. 
+- Check your point cloud as .ply format. (others is also fine, but you should check the data input function).
 
-  The input should be .ply file, and we need to change manual_pose function's view to fixed the photos. view as well as the camera should align the center point.
+- Using `utils/move2center.py` to move point cloud to origin.  (maybe you need downsample the point cloud, and downsample code is also in move2center.py)
 
-  We need to change SAVE_PATH, filename and view.
+- Then using `pc2image.py` generate 2D RGBD photos. 
+
+  The input should be .ply file, and we need to change manual_pose function's view to fixed the photos. View as well as the camera should align the center point.
 
 - Move outputs‘s son folder to test folder.
 
-- `python utils/ply2pth.py`
+- Using `python utils/ply2pth.py` to generate pth file.
 
 - `sh test_scene.sh`
 
@@ -49,17 +51,17 @@ Just like [SAM3D's Data prepartation](https://github.com/Pointcept/SegmentAnythi
       |____libs                              
       |____outputs                              
       	   |____scene0000_0x                   #pc2image.py's output
-      	   			|___color                  #rgb photos
-      	   			|___depth                  #depth photos
-      	   			|___intrinsics             #camera
-      	   			|___pose                   #pose txt
+      	   		|___color                  #rgb photos
+      	   		|___depth                  #depth photos
+      	   		|___intrinsics             #camera
+      			|___pose                   #pose txt
       |____point_cloud                           #your own dataset
       	   |____scene0000_0x.ply
       |____test
       	   |____data_path                      #ply2pth.py's output .pth files
-      	   			|___train
-      	   			|___test
-      	   			|___val
+      	   		|___train
+      	   		|___test
+      	   		|___val
       	   |____raw_path                       #your own dataset
       	   |____rgb_path                       #pc2image.py's output's rgb output
       	   |____sam_pth                        #SAM checkpoint
