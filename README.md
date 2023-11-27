@@ -1,5 +1,5 @@
 # End-to-end-SAM3D
-Segment Anything 3D shows impressive effect on ScanNetv2. If you have a whole new point cloud scene without any rgbd photos, this repo can solve it, this repo's input is .ply data and output is .ply data.
+[Segment Anything 3D](https://github.com/Pointcept/SegmentAnything3D) shows impressive effect on ScanNetv2. If you have a whole new point cloud scene without any rgbd photos, this repo can solve it, this repo's input is .ply data and output is .ply data.
 
 ## Installation
 
