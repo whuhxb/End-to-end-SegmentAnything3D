@@ -72,10 +72,10 @@ def pc2image(K, views, image_shape, point_cloud):
 
         cv2.imwrite(SAVE_PATH + "/color/"  + str(pos) + ".jpg", image)
 
-        mi = np.min(depth) # get minimum depth
-        ma = np.max(depth)
-        depth = (depth - mi) / (ma - mi + 1e-8) # normalize to 0~1
-        depth = (255 * depth).astype(np.uint8)
+        # mi = np.min(depth) # get minimum depth
+        # ma = np.max(depth)
+        # depth = (depth - mi) / (ma - mi + 1e-8) # normalize to 0~1
+        # depth = (255 * depth).astype(np.uint8)
         # cmap = cv2.COLORMAP_JET
         # depth = cv2.applyColorMap(depth, cmap)
         cv2.imwrite(SAVE_PATH + "/depth/" + str(pos) + ".png", depth)

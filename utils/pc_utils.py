@@ -25,7 +25,7 @@ def project_point_cloud(K, view, image_shape, pc):
     W2C = np.linalg.inv(view)
     H, W = image_shape
     image = np.zeros((H, W, 3), dtype=np.uint8)
-    depth = np.zeros((H, W), dtype=np.uint8)
+    depth = np.zeros((H, W), dtype=np.uint16)
     cnt = 0
     # 遍历点云中的每个点
     for point in pc:
@@ -38,7 +38,7 @@ def project_point_cloud(K, view, image_shape, pc):
         position = K @ position[:3]
 
         # 该点深度
-        d = int(position[2])
+        d = int(position[2] * 1000)
         if d == 0:
             continue
         color = (int(color[0]), int(color[1]), int(color[2]))
