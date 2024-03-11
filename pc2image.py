@@ -64,7 +64,8 @@ def pc2image(K, views, image_shape, point_cloud):
     pos = -20
     for idx, view in enumerate(views):
         image, depth = project_point_cloud(K, view, image_shape, point_cloud)
-        W2C = np.linalg.inv(view)
+        # W2C = np.linalg.inv(view)
+        W2C = view
 
         result = (image, depth, W2C, K)
         # vualization
